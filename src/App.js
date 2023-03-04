@@ -1,25 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+import { useState } from 'react'
+import { Expenses } from './components/expenses/Expenses'
+import { NewExpense } from './components/new-expenses/NewExpense'
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const [expense, setExpense] = useState([
+		{
+			date: new Date('2022-03-25'),
+			title: 'Туалетная бумага',
+			price: '300 сом ',
+		},
+		{
+			date: new Date('2022-03-25'),
+			title: 'Телефон',
+			price: '9300 сом ',
+		},
+	])
+	const dataExpenseHandler = (data) => {
+		const updatedExpense = [...expense]
+		updatedExpense.push(data)
+		setExpense(updatedExpense)
+	}
+	return (
+		<div className='App'>
+			<NewExpense ondataHandler={dataExpenseHandler} />
+			<Expenses data={expense} />
+		</div>
+	)
 }
 
-export default App;
+export default App
+
+// React
+// components
+// 1. function
+// 2. return jsx
+// 3. aty chon tamga menen bashtalysh kerek
+// 4. bir container baaryn orop turush kerek
+// SPA single page application
+// reactive(state, VDom)
+// declarative
