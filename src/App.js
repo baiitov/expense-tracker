@@ -7,7 +7,7 @@ function App() {
 	const [expense, setExpense] = useState([
 		{
 			date: new Date('2022-03-25'),
-			title: 'Туалетная бумага',
+			title: ' a4 Туалетная бумага',
 			price: '300 сом ',
 		},
 		{
